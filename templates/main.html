@@ -2,5 +2,28 @@
 {% block content %}
 	<h2>Welcome to the Flask blog!</h2>
 	<p><a href="{{ url_for('logout') }}">log out</a></p>
+	  <h3>Add a new post:</h3>
+	  <form action="{{url_for("add")}}" method="post" class="add">
+	  	<div>
+	  		<label>Title:</label>
+	  		<input type="text" name="title">
+	  	</div>
+	  	<div>
+	  		<label>Post:</label>
+	  		<textarea name="post" rows="5" cols="40"></textarea>
+	  		</div>
+	  	<div class="">
+	  	<input type="submit" class="button" value="save">
+	  	</div>	
+	  </form>
+
+<br/>
+<br/>
+<h3>Posts:</h3>
+{% for p in posts %}
+<strong>Title:</strong>{{p.title}}<br/>
+<strong>Post:</strong>{{p.post}} <br/>
+<br/>
+{% endfor %}
 {% endblock %}
 	
